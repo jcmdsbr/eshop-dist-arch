@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  app:
+    container_name: basket-microservice
+    build:
+      context: ./
+    ports:
+      - 8080:80
+    environment:
+      - REDIS_HOST=basket-redis
+      - REDIS_PORT=6379
+      - CACHE_TTL=3600
+    networks:
+      - basket-net  
+  redis:
+    image: redis:alpine
+    container_name: basket-redis
+    ports:
+        - 6379:6379
+    networks:
+      - basket-net  
+networks:
+  basket-net:
+    name: basket-net
+    driver: bridge      
