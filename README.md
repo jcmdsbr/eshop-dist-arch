@@ -6,7 +6,7 @@
 
 If you liked the project, please give a star ;)
 
-## You need some of the fallowing tools :exclamation:
+## You need some of the following tools :exclamation:
 
 - Visual Studio Code
 - NodeJS
