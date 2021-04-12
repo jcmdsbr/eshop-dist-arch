@@ -24,4 +24,4 @@ If you liked the project, please give a star ;)
 
 ![](doc/distributed-system.png)
 
-[Board Tasks](https://github.com/jcmdsbr/eshop-distributed-architecture/projects/1)
+[Board Progress](https://github.com/jcmdsbr/eshop-distributed-architecture/projects/1)
