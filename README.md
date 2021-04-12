@@ -23,3 +23,5 @@ If you liked the project, please give a star ;)
 - Implementing differents approaches of communications (simple communication protocol using http beteween the client apps and microservices and asyncrhonous communication based messages and events)
 
 ![](doc/distributed-system.png)
+
+[Board Tasks](https://github.com/jcmdsbr/eshop-distributed-architecture/projects/1)
