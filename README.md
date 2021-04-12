@@ -1,6 +1,6 @@
 # eSHOP Distributed Architecture :sunglasses:
 
-- Sample Node/Nest reference architecture, based on a simplified microservices architeture, distributed systems and docker containers.
+- Sample Node/Nest reference architecture, based on a simplified microservices architecture, distributed systems and docker containers.
 
 ## Give a Star! :star:
 
