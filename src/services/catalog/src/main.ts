@@ -1,8 +1,28 @@
+import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  const configService: ConfigService = app.get(ConfigService);
+  const port = configService.get<number>('NODE_PORT') || 8080;
+  swagger(app);
+  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+  app.enableCors();
+  await app.listen(port);
 }
+
+function swagger(app: INestApplication) {
+  const config = new DocumentBuilder()
+    .setTitle('Catalog microservice')
+    .setDescription('The Catalog API microservice')
+    .setVersion('1.0')
+    .addTag('Catalog')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('swagger', app, document);
+}
+
 bootstrap();
