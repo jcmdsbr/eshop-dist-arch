@@ -1,5 +1,7 @@
 import {
   Body,
+  CacheInterceptor,
+  CacheKey,
   Controller,
   Delete,
   Get,
@@ -7,6 +9,7 @@ import {
   Param,
   Post,
   Put,
+  UseInterceptors,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { CatalogService } from './catalog.service';
@@ -23,6 +26,8 @@ export class CatalogController {
     status: 200,
     description: 'Get Catalog items',
   })
+  @UseInterceptors(CacheInterceptor)
+  @CacheKey('catalog_items')
   async get(): Promise<CatalogItem[]> {
     return await this.service.findAll();
   }
@@ -33,6 +38,7 @@ export class CatalogController {
     status: 200,
     description: 'Get Catalog item by id',
   })
+  @UseInterceptors(CacheInterceptor)
   async getById(@Param('id') id: string): Promise<CatalogItem> {
     return await this.service.findById(id);
   }
@@ -43,6 +49,8 @@ export class CatalogController {
     status: 200,
     description: 'Get brands',
   })
+  @UseInterceptors(CacheInterceptor)
+  @CacheKey('catalog_item')
   getBrands(): string[] {
     return this.service.findBrands();
   }
