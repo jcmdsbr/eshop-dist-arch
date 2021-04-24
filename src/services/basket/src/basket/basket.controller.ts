@@ -7,12 +7,14 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
-import { ApiOperation, ApiResponse } from '@nestjs/swagger';
-import { AppService } from './app.service';
+import { BasketService } from './basket.service';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import CustomerBasket from './models/customer-basket.model';
+
 @Controller('api/v1/basket')
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+@ApiTags("basket")
+export class BasketController {
+  constructor(private readonly service: BasketService) {}
 
   @Get(':id')
   @ApiOperation({ summary: 'Get Basket by Customer ID' })
@@ -22,7 +24,7 @@ export class AppController {
     type: CustomerBasket,
   })
   async getBasketByIdAsync(@Param('id') id: string): Promise<CustomerBasket> {
-    return await this.appService.getBasketByIdAsync(id);
+    return await this.service.getBasketByIdAsync(id);
   }
 
   @Post()
@@ -36,7 +38,7 @@ export class AppController {
   async updateBasketAsync(
     @Body() value: CustomerBasket,
   ): Promise<CustomerBasket> {
-    return await this.appService.updateBasketAsync(value);
+    return await this.service.updateBasketAsync(value);
   }
 
   @Delete(':id')
@@ -47,6 +49,6 @@ export class AppController {
     description: 'Delete Basket',
   })
   async deleteBasketByIdAsync(@Param('id') id: string): Promise<void> {
-    return await this.appService.deleteBasketByIdAsync(id);
+    return await this.service.deleteBasketByIdAsync(id);
   }
 }

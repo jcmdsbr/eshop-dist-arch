@@ -1,8 +1,9 @@
 import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
 import { Cache } from 'cache-manager';
 import CustomerBasket from './models/customer-basket.model';
+
 @Injectable()
-export class AppService {
+export class BasketService {
   constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
 
   async deleteBasketByIdAsync(id: string): Promise<void> {
@@ -15,4 +16,5 @@ export class AppService {
   async getBasketByIdAsync(id: string): Promise<CustomerBasket> {
     return await this.cacheManager.get<CustomerBasket>(id);
   }
+
 }

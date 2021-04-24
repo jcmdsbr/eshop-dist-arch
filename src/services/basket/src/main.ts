@@ -19,7 +19,6 @@ function swagger(app: INestApplication) {
     .setTitle('Basket microservice')
     .setDescription('The basket API microservice')
     .setVersion('1.0')
-    .addTag('basket')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);
