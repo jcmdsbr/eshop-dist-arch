@@ -12,7 +12,7 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import CustomerBasket from './models/customer-basket.model';
 
 @Controller('api/v1/basket')
-@ApiTags("basket")
+@ApiTags('basket')
 export class BasketController {
   constructor(private readonly service: BasketService) {}
 

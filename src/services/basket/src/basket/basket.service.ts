@@ -16,5 +16,4 @@ export class BasketService {
   async getBasketByIdAsync(id: string): Promise<CustomerBasket> {
     return await this.cacheManager.get<CustomerBasket>(id);
   }
-
 }

@@ -1,0 +1,31 @@
+{
+  "name": "eshop-dist-arch",
+  "version": "1.0.0",
+  "description": "Sample Node/Nest reference architecture, based on a simplified microservices architecture, distributed systems and docker containers.",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "startup": "bash bin/install.sh",
+    "format": "bash bin/format.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcmdsbr/eshop-dist-arch.git"
+  },
+  "keywords": [
+    "SOLID",
+    "DDD",
+    "CLEAN",
+    "ARCHITECTURE",
+    "EVENT",
+    "SOURCING"
+  ],
+  "author": "JEAN C M DA SILVA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jcmdsbr/eshop-dist-arch/issues"
+  },
+  "homepage": "https://github.com/jcmdsbr/eshop-dist-arch#readme"
+}

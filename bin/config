@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+HOME=$PWD
+
+declare -a services=("basket" "catalog" "identity" "ordering")
